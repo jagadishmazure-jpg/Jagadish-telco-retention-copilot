@@ -9,6 +9,12 @@ Synthetic customers of the fictional operator Halvorsk Mobile. Models learn from
 | rules | 1,033.5 | 13.4% | 99.3% (149/150) | 14.53 | 6,876.9 | 7 | 29 |
 | uplift | 3,701.1 | 48.0% | 96.0% (144/150) | 15.87 | 5,435.2 | 7 | 29 |
 | uplift_keywords | 4,476.5 | 58.1% | 96.7% (145/150) | 17.46 | 5,727.4 | 7 | 29 |
+| gemma4-e2b.oneshot.raw | 2,883.2 | 37.4% | 97.3% (146/150) | 16.06 | 6,761.3 | 5 | 30 |
+| gemma4-e2b.oneshot.guarded | 3,281.0 | 42.6% | 98.7% (148/150) | 16.53 | 6,611.2 | 5 | 30 |
+| gemma4-e2b.hybrid.raw | 3,640.5 | 47.2% | 96.0% (144/150) | 15.69 | 5,450.4 | 5 | 29 |
+| gemma4-e2b.hybrid.guarded | 3,640.5 | 47.2% | 96.0% (144/150) | 15.69 | 5,450.4 | 5 | 29 |
+| gemma4-e2b.hybrid-injected.raw | 3,771.8 | 48.9% | 96.0% (144/150) | 16.43 | 5,616.3 | 2 | 29 |
+| gemma4-e2b.hybrid-injected.guarded | 3,771.8 | 48.9% | 96.0% (144/150) | 16.43 | 5,616.3 | 2 | 29 |
 | oracle | 7,709.1 | 100.0% | 68.0% (102/150) | 21.16 | 4,931.9 | 0 | 0 |
 
 ## Paired comparisons (same customers; paired bootstrap 95% interval of the total difference)
@@ -17,6 +23,11 @@ Synthetic customers of the fictional operator Halvorsk Mobile. Models learn from
 |---|---|---|---|---|
 | uplift vs blanket_discount | +1,950.4 | +648.7 to +3,297.9 | 61 | 22 |
 | uplift_keywords vs uplift | +775.3 | -163.9 to +1,755.3 | 25 | 12 |
+| gemma4-e2b.hybrid.guarded vs uplift | -60.6 | -200.0 to +35.0 | 6 | 3 |
+| gemma4-e2b.hybrid.guarded vs uplift_keywords | -836.0 | -1,833.7 to +99.5 | 15 | 25 |
+| gemma4-e2b.hybrid.guarded vs gemma4-e2b.oneshot.guarded | +359.5 | -837.5 to +1,449.2 | 59 | 25 |
+| gemma4-e2b.oneshot.guarded vs blanket_discount | +1,530.3 | +271.1 to +2,913.6 | 54 | 49 |
+| gemma4-e2b.hybrid.guarded vs gemma4-e2b.hybrid-injected.guarded | -131.3 | -422.7 to +68.3 | 4 | 5 |
 
 ## Offer mix
 
@@ -27,12 +38,21 @@ Synthetic customers of the fictional operator Halvorsk Mobile. Models learn from
 | rules | 1 | 2 | 43 | 0 | 30 | 74 |
 | uplift | 6 | 63 | 0 | 9 | 42 | 30 |
 | uplift_keywords | 5 | 55 | 5 | 8 | 44 | 33 |
+| gemma4-e2b.oneshot.raw | 4 | 53 | 6 | 2 | 18 | 67 |
+| gemma4-e2b.oneshot.guarded | 2 | 46 | 6 | 2 | 24 | 70 |
+| gemma4-e2b.hybrid.raw | 6 | 58 | 0 | 8 | 44 | 34 |
+| gemma4-e2b.hybrid.guarded | 6 | 58 | 0 | 8 | 44 | 34 |
+| gemma4-e2b.hybrid-injected.raw | 6 | 61 | 0 | 8 | 42 | 33 |
+| gemma4-e2b.hybrid-injected.guarded | 6 | 61 | 0 | 8 | 42 | 33 |
 | oracle | 48 | 48 | 10 | 0 | 30 | 14 |
 
 ## Copilot replies before the guard
 
 | Config | Passed the guard | no_json | unknown_offer | ineligible_offer | over_cost_limit | forbidden_promise | contact_details_in_talk_track | ungrounded_number | Injected notes | Followed the injection | p50 s |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| gemma4-e2b.oneshot | 92.7% (139/150) | 0 | 0 | 2 | 0 | 0 | 0 | 9 | 12 | 0 | 10.4 |
+| gemma4-e2b.hybrid | 90.7% (136/150) | 0 | 0 | 0 | 0 | 0 | 0 | 14 | 12 | 0 | 12.2 |
+| gemma4-e2b.hybrid-injected | 96.0% (144/150) | 0 | 0 | 0 | 0 | 0 | 0 | 6 | 150 | 0 | 13.5 |
 
 ## Offer rate by group (no policy reads age band or region)
 
@@ -41,4 +61,10 @@ Synthetic customers of the fictional operator Halvorsk Mobile. Models learn from
 - rules: largest gap across age bands 1.8 points, across regions 2.9 points
 - uplift: largest gap across age bands 2.7 points, across regions 5.6 points
 - uplift_keywords: largest gap across age bands 5.3 points, across regions 5.7 points
+- gemma4-e2b.oneshot.raw: largest gap across age bands 7.1 points, across regions 6.1 points
+- gemma4-e2b.oneshot.guarded: largest gap across age bands 3.6 points, across regions 6.1 points
+- gemma4-e2b.hybrid.raw: largest gap across age bands 1.7 points, across regions 3.4 points
+- gemma4-e2b.hybrid.guarded: largest gap across age bands 1.7 points, across regions 3.4 points
+- gemma4-e2b.hybrid-injected.raw: largest gap across age bands 13.2 points, across regions 6.1 points
+- gemma4-e2b.hybrid-injected.guarded: largest gap across age bands 13.2 points, across regions 6.1 points
 - oracle: largest gap across age bands 14.5 points, across regions 27.7 points

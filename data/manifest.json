@@ -1,0 +1,9 @@
+{
+ "campaign.jsonl": "671c98ef4cedebf2cfc6ba4e7df20cc889498761cac06afc2badbe880f44f50a",
+ "queue.json": "7c2e2a251f9e39084e093ed87c6cef7b6b3e2b03095d73718429478954375969",
+ "runs/gemma4-e2b.hybrid-injected.jsonl": "29492d1267bfa27f09aafee1cf88d950d682ddaf4ff5d18f31125873f6f719a1",
+ "runs/gemma4-e2b.hybrid.jsonl": "d886127d603c98ee0f81d574b4acf943194c10d65c1b3453e64ffa4968962e10",
+ "runs/gemma4-e2b.oneshot.jsonl": "86d8c8dc79b3f23e1e2b8025e03775241b459c626e0ddf2cd7013d1065e3795b",
+ "test.jsonl": "409d2909cf38ad7136a745360592d4ac5a10f28ed92b28e15fb80881777c2d92",
+ "train.jsonl": "bd12550524e426cff8708c002a16b5eef5f290368c7df66fb71435b31a27f410"
+}
