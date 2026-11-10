@@ -1,0 +1,723 @@
+{
+ "suite": {
+  "train": 12000,
+  "test": 2000,
+  "queue": 150,
+  "campaign_arms": {
+   "none": 2016,
+   "loyalty_discount": 2045,
+   "device_upgrade": 1976,
+   "data_boost": 1908,
+   "network_callback": 2036,
+   "contract_bonus": 2019
+  },
+  "queue_drivers": {
+   "device": 20,
+   "network": 14,
+   "none": 30,
+   "price": 55,
+   "relocation": 7,
+   "service": 24
+  },
+  "queue_injected": 12,
+  "queue_churn_mean": 0.4517,
+  "base_churn_mean": 0.2662,
+  "churn_auc": {
+   "account_data": 0.6457,
+   "with_note_keywords": 0.6936
+  }
+ },
+ "policies": {
+  "no_offer": {
+   "n": 150,
+   "net_value": 0.0,
+   "net_per_customer": 0.0,
+   "customers_saved": 0.0,
+   "offer_spend": 0.0,
+   "offers_made": {
+    "k": 0,
+    "n": 150,
+    "rate": 0.0,
+    "ci95": [
+     0.0,
+     0.025
+    ]
+   },
+   "mix": {
+    "none": 150,
+    "loyalty_discount": 0,
+    "device_upgrade": 0,
+    "data_boost": 0,
+    "network_callback": 0,
+    "contract_bonus": 0
+   },
+   "offers_to_leavers": 0,
+   "offers_to_settled": 0,
+   "fairness": {
+    "age_band": {
+     "by_group": {
+      "18-29": {
+       "k": 0,
+       "n": 38,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.0918
+       ]
+      },
+      "30-44": {
+       "k": 0,
+       "n": 28,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.1206
+       ]
+      },
+      "45-64": {
+       "k": 0,
+       "n": 56,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.0642
+       ]
+      },
+      "65+": {
+       "k": 0,
+       "n": 28,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.1206
+       ]
+      }
+     },
+     "max_gap": 0.0
+    },
+    "region": {
+     "by_group": {
+      "Northridge": {
+       "k": 0,
+       "n": 44,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.0803
+       ]
+      },
+      "Eastmere": {
+       "k": 0,
+       "n": 38,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.0918
+       ]
+      },
+      "Southfen": {
+       "k": 0,
+       "n": 33,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.1043
+       ]
+      },
+      "Westvale": {
+       "k": 0,
+       "n": 35,
+       "rate": 0.0,
+       "ci95": [
+        0.0,
+        0.0989
+       ]
+      }
+     },
+     "max_gap": 0.0
+    }
+   },
+   "share_of_oracle": 0.0
+  },
+  "blanket_discount": {
+   "n": 150,
+   "net_value": 1750.8,
+   "net_per_customer": 11.67,
+   "customers_saved": 12.9,
+   "offer_spend": 6066.1,
+   "offers_made": {
+    "k": 119,
+    "n": 150,
+    "rate": 0.7933,
+    "ci95": [
+     0.7216,
+     0.8504
+    ]
+   },
+   "mix": {
+    "none": 31,
+    "loyalty_discount": 119,
+    "device_upgrade": 0,
+    "data_boost": 0,
+    "network_callback": 0,
+    "contract_bonus": 0
+   },
+   "offers_to_leavers": 6,
+   "offers_to_settled": 23,
+   "fairness": {
+    "age_band": {
+     "by_group": {
+      "18-29": {
+       "k": 32,
+       "n": 38,
+       "rate": 0.8421,
+       "ci95": [
+        0.6958,
+        0.9256
+       ]
+      },
+      "30-44": {
+       "k": 25,
+       "n": 28,
+       "rate": 0.8929,
+       "ci95": [
+        0.728,
+        0.9629
+       ]
+      },
+      "45-64": {
+       "k": 42,
+       "n": 56,
+       "rate": 0.75,
+       "ci95": [
+        0.6231,
+        0.8448
+       ]
+      },
+      "65+": {
+       "k": 20,
+       "n": 28,
+       "rate": 0.7143,
+       "ci95": [
+        0.5294,
+        0.8475
+       ]
+      }
+     },
+     "max_gap": 0.1786
+    },
+    "region": {
+     "by_group": {
+      "Northridge": {
+       "k": 31,
+       "n": 44,
+       "rate": 0.7045,
+       "ci95": [
+        0.5578,
+        0.8184
+       ]
+      },
+      "Eastmere": {
+       "k": 31,
+       "n": 38,
+       "rate": 0.8158,
+       "ci95": [
+        0.6658,
+        0.9078
+       ]
+      },
+      "Southfen": {
+       "k": 29,
+       "n": 33,
+       "rate": 0.8788,
+       "ci95": [
+        0.7267,
+        0.9518
+       ]
+      },
+      "Westvale": {
+       "k": 28,
+       "n": 35,
+       "rate": 0.8,
+       "ci95": [
+        0.6411,
+        0.8996
+       ]
+      }
+     },
+     "max_gap": 0.1743
+    }
+   },
+   "share_of_oracle": 0.2271
+  },
+  "rules": {
+   "n": 150,
+   "net_value": 1033.5,
+   "net_per_customer": 6.89,
+   "customers_saved": 14.53,
+   "offer_spend": 6876.9,
+   "offers_made": {
+    "k": 149,
+    "n": 150,
+    "rate": 0.9933,
+    "ci95": [
+     0.9632,
+     0.9988
+    ]
+   },
+   "mix": {
+    "none": 1,
+    "loyalty_discount": 2,
+    "device_upgrade": 43,
+    "data_boost": 0,
+    "network_callback": 30,
+    "contract_bonus": 74
+   },
+   "offers_to_leavers": 7,
+   "offers_to_settled": 29,
+   "fairness": {
+    "age_band": {
+     "by_group": {
+      "18-29": {
+       "k": 38,
+       "n": 38,
+       "rate": 1.0,
+       "ci95": [
+        0.9082,
+        1.0
+       ]
+      },
+      "30-44": {
+       "k": 28,
+       "n": 28,
+       "rate": 1.0,
+       "ci95": [
+        0.8794,
+        1.0
+       ]
+      },
+      "45-64": {
+       "k": 55,
+       "n": 56,
+       "rate": 0.9821,
+       "ci95": [
+        0.9055,
+        0.9968
+       ]
+      },
+      "65+": {
+       "k": 28,
+       "n": 28,
+       "rate": 1.0,
+       "ci95": [
+        0.8794,
+        1.0
+       ]
+      }
+     },
+     "max_gap": 0.0179
+    },
+    "region": {
+     "by_group": {
+      "Northridge": {
+       "k": 44,
+       "n": 44,
+       "rate": 1.0,
+       "ci95": [
+        0.9197,
+        1.0
+       ]
+      },
+      "Eastmere": {
+       "k": 38,
+       "n": 38,
+       "rate": 1.0,
+       "ci95": [
+        0.9082,
+        1.0
+       ]
+      },
+      "Southfen": {
+       "k": 33,
+       "n": 33,
+       "rate": 1.0,
+       "ci95": [
+        0.8957,
+        1.0
+       ]
+      },
+      "Westvale": {
+       "k": 34,
+       "n": 35,
+       "rate": 0.9714,
+       "ci95": [
+        0.8547,
+        0.9949
+       ]
+      }
+     },
+     "max_gap": 0.0286
+    }
+   },
+   "share_of_oracle": 0.1341
+  },
+  "uplift": {
+   "n": 150,
+   "net_value": 3701.1,
+   "net_per_customer": 24.67,
+   "customers_saved": 15.87,
+   "offer_spend": 5435.2,
+   "offers_made": {
+    "k": 144,
+    "n": 150,
+    "rate": 0.96,
+    "ci95": [
+     0.9155,
+     0.9815
+    ]
+   },
+   "mix": {
+    "none": 6,
+    "loyalty_discount": 63,
+    "device_upgrade": 0,
+    "data_boost": 9,
+    "network_callback": 42,
+    "contract_bonus": 30
+   },
+   "offers_to_leavers": 7,
+   "offers_to_settled": 29,
+   "fairness": {
+    "age_band": {
+     "by_group": {
+      "18-29": {
+       "k": 37,
+       "n": 38,
+       "rate": 0.9737,
+       "ci95": [
+        0.865,
+        0.9953
+       ]
+      },
+      "30-44": {
+       "k": 27,
+       "n": 28,
+       "rate": 0.9643,
+       "ci95": [
+        0.8229,
+        0.9937
+       ]
+      },
+      "45-64": {
+       "k": 53,
+       "n": 56,
+       "rate": 0.9464,
+       "ci95": [
+        0.8539,
+        0.9816
+       ]
+      },
+      "65+": {
+       "k": 27,
+       "n": 28,
+       "rate": 0.9643,
+       "ci95": [
+        0.8229,
+        0.9937
+       ]
+      }
+     },
+     "max_gap": 0.0273
+    },
+    "region": {
+     "by_group": {
+      "Northridge": {
+       "k": 43,
+       "n": 44,
+       "rate": 0.9773,
+       "ci95": [
+        0.8819,
+        0.996
+       ]
+      },
+      "Eastmere": {
+       "k": 35,
+       "n": 38,
+       "rate": 0.9211,
+       "ci95": [
+        0.792,
+        0.9728
+       ]
+      },
+      "Southfen": {
+       "k": 32,
+       "n": 33,
+       "rate": 0.9697,
+       "ci95": [
+        0.8468,
+        0.9946
+       ]
+      },
+      "Westvale": {
+       "k": 34,
+       "n": 35,
+       "rate": 0.9714,
+       "ci95": [
+        0.8547,
+        0.9949
+       ]
+      }
+     },
+     "max_gap": 0.0562
+    }
+   },
+   "share_of_oracle": 0.4801
+  },
+  "uplift_keywords": {
+   "n": 150,
+   "net_value": 4476.5,
+   "net_per_customer": 29.84,
+   "customers_saved": 17.46,
+   "offer_spend": 5727.4,
+   "offers_made": {
+    "k": 145,
+    "n": 150,
+    "rate": 0.9667,
+    "ci95": [
+     0.9243,
+     0.9857
+    ]
+   },
+   "mix": {
+    "none": 5,
+    "loyalty_discount": 55,
+    "device_upgrade": 5,
+    "data_boost": 8,
+    "network_callback": 44,
+    "contract_bonus": 33
+   },
+   "offers_to_leavers": 7,
+   "offers_to_settled": 29,
+   "fairness": {
+    "age_band": {
+     "by_group": {
+      "18-29": {
+       "k": 36,
+       "n": 38,
+       "rate": 0.9474,
+       "ci95": [
+        0.8271,
+        0.9854
+       ]
+      },
+      "30-44": {
+       "k": 28,
+       "n": 28,
+       "rate": 1.0,
+       "ci95": [
+        0.8794,
+        1.0
+       ]
+      },
+      "45-64": {
+       "k": 54,
+       "n": 56,
+       "rate": 0.9643,
+       "ci95": [
+        0.8788,
+        0.9902
+       ]
+      },
+      "65+": {
+       "k": 27,
+       "n": 28,
+       "rate": 0.9643,
+       "ci95": [
+        0.8229,
+        0.9937
+       ]
+      }
+     },
+     "max_gap": 0.0526
+    },
+    "region": {
+     "by_group": {
+      "Northridge": {
+       "k": 42,
+       "n": 44,
+       "rate": 0.9545,
+       "ci95": [
+        0.8486,
+        0.9874
+       ]
+      },
+      "Eastmere": {
+       "k": 38,
+       "n": 38,
+       "rate": 1.0,
+       "ci95": [
+        0.9082,
+        1.0
+       ]
+      },
+      "Southfen": {
+       "k": 32,
+       "n": 33,
+       "rate": 0.9697,
+       "ci95": [
+        0.8468,
+        0.9946
+       ]
+      },
+      "Westvale": {
+       "k": 33,
+       "n": 35,
+       "rate": 0.9429,
+       "ci95": [
+        0.8139,
+        0.9842
+       ]
+      }
+     },
+     "max_gap": 0.0571
+    }
+   },
+   "share_of_oracle": 0.5807
+  },
+  "oracle": {
+   "n": 150,
+   "net_value": 7709.1,
+   "net_per_customer": 51.39,
+   "customers_saved": 21.16,
+   "offer_spend": 4931.9,
+   "offers_made": {
+    "k": 102,
+    "n": 150,
+    "rate": 0.68,
+    "ci95": [
+     0.6017,
+     0.7494
+    ]
+   },
+   "mix": {
+    "none": 48,
+    "loyalty_discount": 48,
+    "device_upgrade": 10,
+    "data_boost": 0,
+    "network_callback": 30,
+    "contract_bonus": 14
+   },
+   "offers_to_leavers": 0,
+   "offers_to_settled": 0,
+   "fairness": {
+    "age_band": {
+     "by_group": {
+      "18-29": {
+       "k": 23,
+       "n": 38,
+       "rate": 0.6053,
+       "ci95": [
+        0.4472,
+        0.744
+       ]
+      },
+      "30-44": {
+       "k": 19,
+       "n": 28,
+       "rate": 0.6786,
+       "ci95": [
+        0.4934,
+        0.8207
+       ]
+      },
+      "45-64": {
+       "k": 42,
+       "n": 56,
+       "rate": 0.75,
+       "ci95": [
+        0.6231,
+        0.8448
+       ]
+      },
+      "65+": {
+       "k": 18,
+       "n": 28,
+       "rate": 0.6429,
+       "ci95": [
+        0.4583,
+        0.7929
+       ]
+      }
+     },
+     "max_gap": 0.1447
+    },
+    "region": {
+     "by_group": {
+      "Northridge": {
+       "k": 30,
+       "n": 44,
+       "rate": 0.6818,
+       "ci95": [
+        0.5344,
+        0.8
+       ]
+      },
+      "Eastmere": {
+       "k": 24,
+       "n": 38,
+       "rate": 0.6316,
+       "ci95": [
+        0.4728,
+        0.7662
+       ]
+      },
+      "Southfen": {
+       "k": 28,
+       "n": 33,
+       "rate": 0.8485,
+       "ci95": [
+        0.6908,
+        0.9335
+       ]
+      },
+      "Westvale": {
+       "k": 20,
+       "n": 35,
+       "rate": 0.5714,
+       "ci95": [
+        0.4086,
+        0.7202
+       ]
+      }
+     },
+     "max_gap": 0.2771
+    }
+   },
+   "share_of_oracle": 1.0
+  }
+ },
+ "llm": {},
+ "paired": {
+  "uplift_vs_blanket": {
+   "first": "uplift",
+   "second": "blanket_discount",
+   "diff": 1950.4,
+   "ci95": [
+    648.7,
+    3297.9
+   ],
+   "better": 61,
+   "worse": 22
+  },
+  "uplift_keywords_vs_uplift": {
+   "first": "uplift_keywords",
+   "second": "uplift",
+   "diff": 775.3,
+   "ci95": [
+    -163.9,
+    1755.3
+   ],
+   "better": 25,
+   "worse": 12
+  }
+ }
+}
