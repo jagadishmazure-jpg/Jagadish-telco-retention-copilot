@@ -1,0 +1,9 @@
+name: aiops-triage
+channels: [conda-forge]
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - numpy==2.5.4
+      - pyyaml==6.0.3
+      - llama-cpp-python==0.3.36
