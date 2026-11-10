@@ -1,15 +1,15 @@
-# Azure ML pipeline (Microsoft Foundry hub-based project) that re-runs the same triage evaluation on the
-# scale-to-zero CPU cluster. WRITTEN, NOT RUN. Submitted only by the gated deploy workflow:
-#   az ml job create -f infra/aml/pipeline.yml -g rg-aiops-dev -w mlw-aiops-dev
+# Azure ML pipeline (Microsoft Foundry hub-based project) that re-runs the same retention copilot
+# evaluation on the scale-to-zero CPU cluster. WRITTEN, NOT RUN. Submitted only by the gated deploy workflow:
+#   az ml job create -f infra/aml/pipeline.yml -g rg-retain-dev -w mlw-retain-dev
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
 type: pipeline
-display_name: aiops-triage-eval
-experiment_name: aiops-triage
+display_name: retention-copilot-eval
+experiment_name: retention-copilot
 settings:
-  default_compute: azureml:cpu-triage
+  default_compute: azureml:cpu-retain
   continue_on_step_failure: false
 jobs:
-  triage:
+  copilot:
     type: command
     code: ../..
     environment:
@@ -17,10 +17,10 @@ jobs:
       conda_file: environment.yml
     command: >-
       bash scripts/fetch_models.sh
-      && python scripts/build_incidents.py --check
+      && python scripts/build_data.py --check
       && rm -f data/runs/*.jsonl
-      && for c in first_alert graph_rca gemma4-e2b.oneshot gemma4-e2b.agent gemma4-e2b.hybrid gemma4-e2b.hybrid-injected;
-         do python scripts/run_triage.py --config $c --threads 8 || exit 1; done
+      && for c in gemma4-e2b.oneshot gemma4-e2b.hybrid gemma4-e2b.hybrid-injected;
+         do python scripts/run_copilot.py --config $c --threads 8 || exit 1; done
       && cp data/runs/*.jsonl ${{outputs.runs}}
     outputs:
       runs:
@@ -32,7 +32,7 @@ jobs:
       image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu22.04:20261108.v1
       conda_file: environment.yml
     inputs:
-      runs: ${{parent.jobs.triage.outputs.runs}}
+      runs: ${{parent.jobs.copilot.outputs.runs}}
     command: >-
       rm -f data/runs/*.jsonl && cp ${{inputs.runs}}/*.jsonl data/runs/
       && python scripts/run_eval.py --runs-only

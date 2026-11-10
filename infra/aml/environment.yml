@@ -1,4 +1,4 @@
-name: aiops-triage
+name: retention-copilot
 channels: [conda-forge]
 dependencies:
   - python=3.12

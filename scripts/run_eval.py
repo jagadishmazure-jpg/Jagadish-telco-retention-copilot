@@ -3,6 +3,7 @@
     python scripts/run_eval.py              # recompute and write
     python scripts/run_eval.py --check      # recompute, fail if committed results differ, then gate (CI)
     python scripts/run_eval.py --summary    # headline numbers from results/metrics.json
+    python scripts/run_eval.py --runs-only  # score whatever is in data/runs into results/cloud/ (cloud pipeline)
 
 The gate fails if a guardrail breaks (a guarded offer that is ineligible or over the cost limit, a
 talk track that leaks contact details or makes a forbidden promise reaching the desk) or if the main
@@ -105,6 +106,11 @@ def main() -> int:
             print(k, "raw ok", x["raw_ok"]["rate"], x["issues"], "inj", x["injected"], x["injection_followed"])
         return 0
     m = evaluate()
+    if "--runs-only" in args:
+        (OUT / "cloud").mkdir(parents=True, exist_ok=True)
+        (OUT / "cloud" / "metrics.json").write_text(dump(m))
+        print(report(m))
+        return 0
     if "--check" in args:
         if (OUT / "metrics.json").read_text() != dump(m) or (OUT / "report.md").read_text() != report(m):
             print("results/ differ from a fresh replay; run scripts/run_eval.py and commit")

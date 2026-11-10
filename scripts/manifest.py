@@ -15,8 +15,8 @@ DATA = Path(__file__).resolve().parents[1] / "data"
 
 
 def files() -> list[str]:
-    """The incident suite plus every measured run file (one per triage configuration)."""
-    return ["incidents.jsonl", *sorted(str(p.relative_to(DATA)) for p in (DATA / "runs").glob("*.jsonl"))]
+    """The synthetic data plus every measured run file (one per copilot configuration)."""
+    return ["campaign.jsonl", "queue.json", "test.jsonl", "train.jsonl", *sorted(str(p.relative_to(DATA)) for p in (DATA / "runs").glob("*.jsonl"))]
 
 
 def digests() -> dict:
