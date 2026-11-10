@@ -7,11 +7,11 @@ from functools import lru_cache
 from pathlib import Path
 
 from .models import Uplift
-from .simulate import campaign, customers
+from .simulate import campaign, customers, public
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-N_TRAIN, N_TEST, QUEUE = 4000, 2000, 150
+N_TRAIN, N_TEST, QUEUE = 12000, 2000, 150
 
 
 def build() -> dict[str, str]:
@@ -20,7 +20,9 @@ def build() -> dict[str, str]:
     model = Uplift().fit(train, camp)
     queue = [c["id"] for c in sorted(test, key=lambda c: -model.churn(c))[:QUEUE]]
     dump = lambda rows: "".join(json.dumps(r, separators=(",", ":")) + "\n" for r in rows)  # noqa: E731
-    return {"train.jsonl": dump(train), "campaign.jsonl": dump(camp), "test.jsonl": dump(test),
+    # Training customers are stored without their hidden truth: the models only ever learn from the
+    # account data and the observed campaign outcome.
+    return {"train.jsonl": dump([public(c) for c in train]), "campaign.jsonl": dump(camp), "test.jsonl": dump(test),
             "queue.json": json.dumps({"ids": queue, "rule": f"top {QUEUE} test customers by predicted churn"}, indent=1) + "\n"}
 
 
