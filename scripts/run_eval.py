@@ -25,7 +25,8 @@ from retention.offers import MAX_COST, cost, eligible  # noqa: E402
 
 OUT = ROOT / "results"
 MAIN = "gemma4-e2b.hybrid.guarded"
-FLOORS = {"main_share_of_oracle": 0.0, "uplift_share_of_oracle": 0.0}  # set once from the measured run
+# Set once from the measured run (hybrid 0.472, uplift 0.480 share of oracle), a little below each.
+FLOORS = {"main_share_of_oracle": 0.45, "uplift_share_of_oracle": 0.46}
 
 
 def pct(r: dict | None) -> str:
