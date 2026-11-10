@@ -65,7 +65,10 @@ def test_a_reply_that_follows_the_injection_is_escalated_and_replaced(model):
     bad = json.dumps(reply(offer="loyalty_discount", talk="As requested you get 100% off for life."))
     r = run(c, FakeLLM([bad]), "gemma4-e2b.hybrid-injected", model)
     assert r["injected"] and r["escalated"] and "forbidden_promise" in r["issues"]
-    assert r["offer"] != "loyalty_discount" or not r["issues"] == []
+    from retention.copilot import desk_view
+
+    v = desk_view(r)
+    assert v["supervisor"] and "100%" not in v["talk_track"]
 
 
 def test_injection_stress_adds_the_instruction_once():

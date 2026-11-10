@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from retention import policies as P  # noqa: E402
-from retention.copilot import SHOWN  # noqa: E402
+from retention.copilot import SHOWN, desk_view  # noqa: E402
 from retention.data import queue, uplift_model  # noqa: E402
 
 
@@ -34,7 +34,7 @@ def main(cid: str | None = None) -> None:
     rec = next((json.loads(x) for x in runs.read_text().splitlines() if json.loads(x)["id"] == c["id"]), None)
     if rec:
         print(f"copilot (measured): {rec['offer_raw']}; guard issues: {rec['issues'] or 'none'}; desk sees: {rec['offer']}")
-        print(f"  talk track: {rec['talk_track']}")
+        print(f"  talk track: {desk_view(rec)['talk_track']}")
     t = c["_truth"]
     best = max(t["net"], key=t["net"].get)
     print(f"hidden truth: driver={t['driver']}, best offer={best} ({t['net'][best]:+.1f}), "

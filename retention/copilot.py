@@ -117,3 +117,11 @@ def run(c: dict, llm, config: str, model: Uplift) -> dict:
             "talk_track": scrub(str((ans or {}).get("talk_track", "")))[0][:600],
             "injected": INJECTION in c["note"], "prompt_tokens": pt, "completion_tokens": ct,
             "seconds": round(time.perf_counter() - t0, 1), "raw": raw[:800]}
+
+
+def desk_view(rec: dict) -> dict:
+    """What the desk agent sees for a stored run record."""
+    if not rec["escalated"]:
+        return {"offer": rec["offer"], "talk_track": rec["talk_track"], "supervisor": False}
+    return {"offer": rec["offer"], "talk_track": f"Suggested offer: {OFFERS[rec['offer']]['desc']}. "
+            "The copilot's reply was held back; a supervisor will review this case.", "supervisor": True}
