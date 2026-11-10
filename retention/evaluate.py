@@ -44,7 +44,8 @@ def policy_metrics(q: list[dict], offers: list[str]) -> dict:
     mix = {o: offers.count(o) for o in NAMES}
 
     def offer_rate(key, groups):
-        r = {g: rate(sum(m for c, m in zip(q, made) if c[key] == g), sum(c[key] == g for c in q)) for g in groups}
+        r = {g: rate(sum(m for c, m in zip(q, made) if c[key] == g), sum(c[key] == g for c in q))
+             for g in groups if any(c[key] == g for c in q)}
         vals = [v["rate"] for v in r.values()]
         return {"by_group": r, "max_gap": round(max(vals) - min(vals), 4)}
 

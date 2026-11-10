@@ -31,7 +31,7 @@ def model():
 def customer(**kw):
     base = {"id": "x", "plan": "postpaid_basic", "contract": "month_to_month", "tenure_months": 20,
             "monthly_charge": 30.0, "data_gb": 8.0, "dropped_call_pct": 1.0, "tickets_90d": 0,
-            "late_payments_12m": 0, "device_age_months": 12, "autopay": True, "discount_last_12m": False,
+            "late_payments_12m": 0, "device_age_months": 20, "autopay": True, "discount_last_12m": False,
             "age_band": "30-44", "region": "Eastmere", "note": "Last call: checked the data allowance."}
     return {**base, **kw}
 

@@ -81,9 +81,12 @@ class Uplift:
 
 
 def auc(scores: list[float], labels: list[bool]) -> float:
-    s, y = np.asarray(scores), np.asarray(labels, dtype=bool)
-    order = s.argsort()
+    s, y = np.asarray(scores, dtype=float), np.asarray(labels, dtype=bool)
+    order = s.argsort(kind="mergesort")
     ranks = np.empty(len(s))
     ranks[order] = np.arange(1, len(s) + 1)
+    for v in np.unique(s):  # average ranks for ties
+        tie = s == v
+        ranks[tie] = ranks[tie].mean()
     pos = y.sum()
     return float((ranks[y].sum() - pos * (pos + 1) / 2) / (pos * (len(s) - pos)))

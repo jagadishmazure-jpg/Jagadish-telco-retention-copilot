@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Download the open-weight GGUF files listed in scripts/models.json into models/ and verify SHA-256.
-# Only needed to re-measure (scripts/run_triage.py); tests, CI and the eval replay need no weights.
+# Only needed to re-measure (scripts/run_copilot.py); tests, CI and the eval replay need no weights.
 # Gemma 4 E2B QAT Q4_0 is about 3.4 GB.
 set -euo pipefail
 cd "$(dirname "$0")/.."
